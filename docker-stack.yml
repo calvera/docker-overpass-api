@@ -1,0 +1,19 @@
+version: '3.1'
+
+services:
+  overpass:
+    environment:
+      - VIRTUAL_HOST=overpass.ilabs.dev
+      - LETSENCRYPT_EMAIL=karel.sommer@ilabs.cz
+      - LETSENCRYPT_HOST=overpass.ilabs.dev
+    image: 'docker-registry.inventi.cz/overpass-api:latest'
+    volumes:
+      - '/overpass/db:/overpass_DB'
+    networks:
+      - default
+      - nginx-proxy_default
+
+networks:
+  default:
+  nginx-proxy_default:
+    external: yes

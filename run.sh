@@ -31,6 +31,7 @@ rm $DBDIR/osm3s*
 #make sure DBDIR is readable by overpass_api user
 chmod uog+rw $DBDIR
 chmod uog+rw $DBDIR/*
+chmod a+x /*sh /Overpass-API/src/bin/*sh
 
 su overpass_api -c '/launch_overpass.sh'
 
